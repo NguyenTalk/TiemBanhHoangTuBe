@@ -181,4 +181,58 @@ body {
     border-radius: 6px;
     font-weight: bold;
   }
+  /* Popup form thêm bánh */
+.addcake-btn {
+    background: #ff7b00;
+    color: #111;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .addcake-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .addcake-form {
+    background: #1b1b1b;
+    border: 2px solid #ff7b00;
+    border-radius: 12px;
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0 0 30px rgba(255,123,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+  
+  .addcake-form input, .addcake-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #2a2a2a;
+    color: #fff;
+  }
+  
+  .addcake-form .form-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .addcake-form .cancel {
+    background: #444;
+    color: #fff;
+  }
   

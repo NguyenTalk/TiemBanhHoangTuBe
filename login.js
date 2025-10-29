@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("user", JSON.stringify(data.data));
   
           setTimeout(() => {
-            window.location.href = "dashboard.html";
+            window.location.href = "Trangweb.html";
           }, 1200);
         } catch (err) {
           console.error("Fetch error:", err);

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header class="navbar">
     <div class="logo">🎃 Bro’s Spooky Bakery</div>
     <nav>
@@ -14,82 +15,60 @@
       <a href="#menu">Menu</a>
       <a href="#about">Giới thiệu</a>
       <a href="#contact">Liên hệ</a>
-      <a href="login.html" class="login-btn">Đăng nhập</a>
-      <a href="register.html" class="register-btn">Đăng ký</a>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-text">
       <h1>Ngọt ngào trong bóng tối 👻</h1>
-      <p>Bro’s Bakery trở lại với phiên bản Halloween — bánh ngon đến “rùng mình”.</p>
-      <a href="#menu" class="btn">Khám phá Menu ma mị</a>
+      <p>Bánh ngọt Halloween – vừa ngọt, vừa... đáng sợ 🎃</p>
+      <a href="#menu" class="btn">Khám phá ngay</a>
     </div>
   </section>
 
   <section id="menu" class="menu">
     <h2>🕯️ Menu Halloween</h2>
-    <p class="menu-desc">Ngọt – ngon – và một chút rùng rợn... chỉ có tại Bro’s Spooky Bakery!</p>
 
-    <h3 class="menu-type">💀 Bánh đặc biệt Halloween</h3>
-    <div class="menu-grid">
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1600692069943-37e46b1a0c46" alt="Pumpkin Pie">
-        <h3>Pumpkin Pie</h3>
-        <p>Bánh bí đỏ nướng giòn, vị ngọt béo – hồn Halloween trong từng miếng.</p>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Spider Cupcake">
-        <h3>Spider Cupcake</h3>
-        <p>Bánh cupcake socola trang trí mạng nhện kem, nhìn sợ mà ăn mê.</p>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852" alt="Ghost Donut">
-        <h3>Ghost Donut</h3>
-        <p>Donut phủ trắng như ma, nhưng ngọt ngào hơn lời tỏ tình tháng 10.</p>
-      </div>
+    <!-- Nút mở form thêm bánh -->
+    <button id="openAddCake" class="btn addcake-btn">+ Thêm bánh mới</button>
+
+    <!-- Form thêm bánh -->
+    <div id="addCakeFormContainer" class="addcake-popup">
+      <form id="addCakeForm" class="addcake-form">
+        <h3>🎂 Thêm bánh mới</h3>
+
+        <label for="cakeName">Tên bánh</label>
+        <input type="text" id="cakeName" placeholder="Nhập tên bánh..." required>
+
+        <label for="cakeDesc">Mô tả</label>
+        <textarea id="cakeDesc" placeholder="Mô tả ngắn..." required></textarea>
+
+        <label for="cakeImage">Link hình ảnh</label>
+        <input type="url" id="cakeImage" placeholder="https://..." required>
+
+        <label for="cakePrice">Giá (VNĐ)</label>
+        <input type="number" id="cakePrice" placeholder="Nhập giá" required>
+
+        <div class="form-btns">
+          <button type="submit" class="btn">Đăng bánh</button>
+          <button type="button" id="closeAddCake" class="btn cancel">Hủy</button>
+        </div>
+
+        <p id="addCakeMsg" class="error"></p>
+      </form>
     </div>
 
-    <h3 class="menu-type">🧁 Bánh ngọt truyền thống</h3>
-    <div class="menu-grid">
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1605470207062-0882b0a7b5b3" alt="Chocolate Cake">
-        <h3>Dark Chocolate Cake</h3>
-        <p>Đậm vị socola, phủ lớp kem tím huyền bí – hương vị của đêm tối.</p>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1628191018505-3d4f1b56d3e3" alt="Cupcake">
-        <h3>Violet Cupcake</h3>
-        <p>Cupcake màu tím lilac, thơm dịu – ngọt như phù thủy pha chế.</p>
-      </div>
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f" alt="Cookies">
-        <h3>Midnight Cookies</h3>
-        <p>Cookies đen giòn rụm, socola chip tan chảy trong ánh lửa bí ngô.</p>
-      </div>
+    <!-- Vùng hiển thị bánh -->
+    <div class="menu-grid" id="cakeList">
+      <p>🍰 Đang tải danh sách bánh...</p>
     </div>
   </section>
-
-  <section id="about" class="about">
-    <h2>👻 Về Bro’s Spooky Bakery</h2>
-    <p>
-      Chào mừng đến với Bro’s Bakery phiên bản Halloween!  
-      Ở đây, mỗi chiếc bánh mang hương vị ngọt ngào nhưng ẩn giấu chút bí ẩn.  
-      Hãy cùng thưởng thức và khám phá “mặt tối” của sự ngọt ngào.
-    </p>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>🕸️ Liên hệ với Bro</h2>
-    <p>📍 123 Nghĩa địa bánh ngọt – Thị trấn Trảng Bom</p>
-    <p>📞 0987 654 321</p>
-    <p>📧 bro@spookybakery.vn</p>
-  </section>
-  <script src="main.js"></script>
-
 
   <footer>
-    <p>© 2025 Bro’s Spooky Bakery | Made with 💀 and a lot of sugar</p>
+    <p>© 2025 Bro’s Spooky Bakery | Made with 💀 and love</p>
   </footer>
+
+  <!-- Script nằm cuối để đảm bảo chạy được -->
+  <script src="Trangchu.js"></script>
 </body>
 </html>

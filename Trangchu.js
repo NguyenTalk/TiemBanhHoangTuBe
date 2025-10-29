@@ -1,45 +1,106 @@
 // ==============================
-// 🎃 Bro’s Spooky Bakery – API Connect
+// 🎃 Bro’s Spooky Bakery
 // ==============================
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const menuContainer = document.querySelector(".menu-grid");
-    const errorBox = document.createElement("p");
-    errorBox.style.color = "#ff7b00";
-    errorBox.style.marginTop = "10px";
+document.addEventListener("DOMContentLoaded", () => {
+ const API_URL = "https://api.allorigins.win/raw?url=https://banhngot.fitlhu.com/api/cakes";
+
+  const cakeList = document.getElementById("cakeList");
+  const openBtn = document.getElementById("openAddCake");
+  const formContainer = document.getElementById("addCakeFormContainer");
+  const closeBtn = document.getElementById("closeAddCake");
+  const addCakeForm = document.getElementById("addCakeForm");
+  const addCakeMsg = document.getElementById("addCakeMsg");
+
+  // ==========================
+  // 📦 Lấy danh sách bánh từ API
+  // ==========================
   
+
+  async function loadCakes() {
     try {
-      const res = await fetch("https://banhngot.fitlhu.com/api/cakes");
-      if (!res.ok) throw new Error(`Lỗi kết nối API (${res.status})`);
-  
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("Lỗi khi tải dữ liệu!");
       const data = await res.json();
-      console.log("🎂 Dữ liệu nhận từ API:", data);
-  
-      // Kiểm tra dữ liệu trả về
-      if (!data || !data.data || !Array.isArray(data.data)) {
-        throw new Error("Phản hồi API không đúng định dạng mong đợi.");
+
+      cakeList.innerHTML = "";
+      const cakes = data.data || [];
+
+      if (cakes.length === 0) {
+        cakeList.innerHTML = "<p>Không có bánh nào 😢</p>";
+        return;
       }
-  
-      // Xóa bánh cũ, hiển thị bánh mới
-      menuContainer.innerHTML = "";
-  
-      data.data.forEach((cake) => {
+
+      cakes.forEach(cake => {
         const item = document.createElement("div");
-        item.classList.add("item");
-  
+        item.className = "item";
         item.innerHTML = `
-          <img src="${cake.image || 'https://images.unsplash.com/photo-1608198093002-de6bd7c35507'}" alt="${cake.name}">
-          <h3>${cake.name || 'Bánh ngọt không tên'}</h3>
-          <p>${cake.description || 'Một chiếc bánh ngọt tuyệt vời đến từ Bro’s Bakery.'}</p>
-          ${cake.price ? `<span class="price">💰 ${cake.price}₫</span>` : ""}
+          <img src="${cake.image || "https://via.placeholder.com/300x200"}" alt="${cake.name}">
+          <h3>${cake.name}</h3>
+          <p>${cake.description || "Không có mô tả"}</p>
+          <span class="price">💰 ${cake.price ? cake.price.toLocaleString() : "?"}₫</span>
         `;
-  
-        menuContainer.appendChild(item);
+        cakeList.appendChild(item);
       });
     } catch (err) {
-      console.error("❌ Lỗi khi lấy dữ liệu bánh:", err);
-      errorBox.textContent = "Không thể tải danh sách bánh từ server 😭";
-      menuContainer.after(errorBox);
+      console.error(err);
+      cakeList.innerHTML = "<p style='color:#ff7b00'>Không thể tải danh sách bánh 😭</p>";
+    }
+  }
+
+  loadCakes();
+
+  // ==========================
+  // 🎂 Mở & đóng form thêm bánh
+  // ==========================
+  openBtn.addEventListener("click", () => {
+    formContainer.style.display = "flex";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    formContainer.style.display = "none";
+  });
+
+  // ==========================
+  // 🧁 Gửi bánh mới lên server
+  // ==========================
+  addCakeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    addCakeMsg.textContent = "";
+
+    const cake = {
+      name: document.getElementById("cakeName").value.trim(),
+      description: document.getElementById("cakeDesc").value.trim(),
+      image: document.getElementById("cakeImage").value.trim(),
+      price: parseInt(document.getElementById("cakePrice").value.trim())
+    };
+
+    if (!cake.name || !cake.description || !cake.image || !cake.price) {
+      addCakeMsg.textContent = "⚠️ Vui lòng nhập đầy đủ thông tin!";
+      return;
+    }
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cake)
+      });
+
+      const data = await res.json();
+      console.log("API Response:", data);
+
+      if (!res.ok) throw new Error(data.message || "Thêm bánh thất bại!");
+
+      addCakeMsg.style.color = "#22c55e";
+      addCakeMsg.textContent = "🎉 Đã thêm bánh mới thành công!";
+      formContainer.style.display = "none";
+
+      setTimeout(loadCakes, 1000);
+    } catch (err) {
+      console.error(err);
+      addCakeMsg.textContent = "❌ Không thể gửi dữ liệu lên server!";
     }
   });
-  
+});
+
