@@ -1,238 +1,178 @@
+/* ==== Nền tối huyền bí ==== */
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #0b0b0b;
-    color: #f5f5f5;
-    overflow-x: hidden;
-  }
-  
-  /* Thanh menu */
-  .navbar {
-    background: #111;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 40px;
-    border-bottom: 2px solid #ff7b00;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .logo {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #ff7b00;
-    text-shadow: 0 0 10px #ff7b00;
-  }
-  
-  .navbar a {
-    color: #f5f5f5;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  
-  .navbar a:hover {
-    color: #ff7b00;
-    text-shadow: 0 0 5px #ff7b00;
-  }
-  
-  /* Hero section */
-  .hero {
-    background: url("https://images.unsplash.com/photo-1603907009978-4b4d4a1b3d9c") center/cover no-repeat;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
-  
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-  }
-  
-  .hero-text {
-    position: relative;
-    z-index: 10;
-    max-width: 600px;
-    color: #fff;
-  }
-  
-  .hero-text h1 {
-    font-size: 2.8rem;
-    color: #ff7b00;
-    text-shadow: 0 0 20px #ff7b00;
-  }
-  
-  .hero-text p {
-    color: #ddd;
-    margin-bottom: 25px;
-  }
-  
-  .btn {
-    background: #ff7b00;
-    color: #111;
-    padding: 10px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.3s;
-  }
-  
-  .btn:hover {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 20px #ff7b00;
-  }
-  
-  /* Menu */
-  .menu {
-    padding: 60px 20px;
-    text-align: center;
-    background: #151515;
-  }
-  
-  .menu h2 {
-    color: #ff7b00;
-    text-shadow: 0 0 10px #ff7b00;
-    margin-bottom: 20px;
-  }
-  
-  .menu-desc {
-    color: #bbb;
-    font-style: italic;
-    margin-bottom: 40px;
-  }
-  
-  .menu-type {
-    color: #ff7b00;
-    font-size: 1.6rem;
-    margin: 40px 0 20px;
-    border-bottom: 1px solid #ff7b00;
-    display: inline-block;
-    padding-bottom: 6px;
-  }
-  
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  .item {
-    background: #222;
-    border-radius: 10px;
-    padding: 20px;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(255, 123, 0, 0.1);
-  }
-  
-  .item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 25px rgba(255, 123, 0, 0.6);
-  }
-  
-  /* About & Contact */
-  .about, .contact {
-    padding: 60px 20px;
-    text-align: center;
-  }
-  
-  .about h2, .contact h2 {
-    color: #ff7b00;
-    text-shadow: 0 0 10px #ff7b00;
-  }
-  
-  .about p, .contact p {
-    color: #ccc;
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.8;
-  }
-  
-  /* Footer */
-  footer {
-    background: #0d0d0d;
-    text-align: center;
-    padding: 20px;
-    border-top: 2px solid #ff7b00;
-    color: #888;
-  }
-  .price {
-    display: inline-block;
-    margin-top: 8px;
-    background: #ff7b00;
-    color: #111;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-weight: bold;
-  }
-  /* Popup form thêm bánh */
-.addcake-btn {
-    background: #ff7b00;
-    color: #111;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-  
-  .addcake-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .addcake-form {
-    background: #1b1b1b;
-    border: 2px solid #ff7b00;
-    border-radius: 12px;
-    padding: 30px;
-    width: 400px;
-    box-shadow: 0 0 30px rgba(255,123,0,0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: left;
-  }
-  
-  .addcake-form input, .addcake-form textarea {
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    background: #2a2a2a;
-    color: #fff;
-  }
-  
-  .addcake-form .form-btns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .addcake-form .cancel {
-    background: #444;
-    color: #fff;
-  }
-  
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: radial-gradient(circle at top, #1b0f26, #0a040f);
+  color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+/* ==== Navbar ==== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 10, 30, 0.95);
+  padding: 15px 40px;
+  border-bottom: 2px solid #ff7b00;
+  box-shadow: 0 0 20px #ff7b00;
+}
+
+.navbar nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: #ff7b00;
+  text-shadow: 0 0 8px #ff9d3a;
+}
+
+/* ==== Nút đăng nhập / đăng xuất ==== */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn.small {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+/* ==== Hero ==== */
+.spooky-hero {
+  background: url('https://images.unsplash.com/photo-1602440380641-cf2a7e255b0a') center/cover no-repeat;
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  position: relative;
+}
+
+.spooky-hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 3em;
+  color: #ff7b00;
+  text-shadow: 0 0 20px #ff7b00;
+}
+
+.hero-text p {
+  color: #f7c689;
+  font-style: italic;
+}
+
+.btn {
+  background: linear-gradient(90deg, #ff7b00, #ff4500);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #ff7b00;
+}
+
+/* ==== Menu ==== */
+.menu {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.menu h2 {
+  color: #ff7b00;
+  text-shadow: 0 0 15px #ff7b00;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.menu-grid .item {
+  background: #201225;
+  border: 2px solid #ff7b00;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 25px rgba(255, 123, 0, 0.25);
+  transition: 0.3s;
+}
+
+.menu-grid .item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(255, 123, 0, 0.45);
+}
+
+.menu-grid img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.price {
+  color: #ff7b00;
+  font-weight: bold;
+}
+
+/* ==== Form thêm bánh ==== */
+.addcake-popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 0, 20, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.addcake-form {
+  background: #1a0d1d;
+  border: 2px solid #ff7b00;
+  padding: 25px;
+  border-radius: 12px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 25px rgba(255, 123, 0, 0.3);
+}
+
+.addcake-form input,
+.addcake-form textarea {
+  padding: 8px;
+  border: 1px solid #ff7b00;
+  border-radius: 5px;
+  background: #120714;
+  color: #fff;
+}
+
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #120714;
+  border-top: 1px solid #ff7b00;
+  color: #f5cba0;
+}
