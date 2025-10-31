@@ -53,16 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       cakes.forEach((cake) => {
-        const item = document.createElement("div");
-        item.className = "item";
-        item.innerHTML = `
-          <img src="${cake.image || "https://via.placeholder.com/300x200"}" alt="${cake.name}">
-          <h3>${cake.name}</h3>
-          <p>${cake.description || "Không có mô tả"}</p>
-          <span class="price">💰 ${cake.price ? cake.price.toLocaleString() : "?"}₫</span>
-        `;
-        cakeList.appendChild(item);
-      });
+  const item = document.createElement("div");
+  item.className = "item";
+  item.innerHTML = `
+    <img src="${cake.image || "https://via.placeholder.com/300x200"}" alt="${cake.name}">
+    <h3>${cake.name}</h3>
+    <p>${cake.description || "Không có mô tả"}</p>
+    <p class="author">👤 Người đăng: ${cake.author || "Ẩn danh 👻"}</p>
+    <span class="price">💰 ${cake.price ? cake.price.toLocaleString() : "?"}₫</span>
+  `;
+  cakeList.appendChild(item);
+});
+
     } catch (err) {
       console.error(err);
       cakeList.innerHTML = "<p style='color:#ff7b00'>Không thể tải danh sách bánh 😭</p>";
@@ -99,8 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
   name: document.getElementById("cakeName").value.trim(),
   description: document.getElementById("cakeDesc").value.trim(),
   image: document.getElementById("cakeImage").value.trim(),
-  price: parseInt(document.getElementById("cakePrice").value.trim())
+  price: parseInt(document.getElementById("cakePrice").value.trim()),
+  author: localStorage.getItem("username") || "Ẩn danh 👻"
 };
+
+
 
 console.log("📤 Gửi bánh lên server:", cake);
 

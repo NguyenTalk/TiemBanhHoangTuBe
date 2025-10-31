@@ -29,18 +29,25 @@ app.get("/cakes", async (req, res) => {
 
 // 🎂 API thêm bánh
 app.post("/cakes", (req, res) => {
-  const { name, description, image, price } = req.body;
+  const { name, description, image, price, author } = req.body; // thêm author
   if (!name || !description || !image || !price) {
     return res.status(400).json({ message: "Thiếu thông tin bánh!" });
   }
 
-  const newCake = { id: Date.now(), name, description, image, price };
-  localCakes.push(newCake);
+  const newCake = {
+    id: Date.now(),
+    name,
+    description,
+    image,
+    price,
+    author: author || "Ẩn danh 👻" // nếu không có thì để mặc định
+  };
 
-  // 🔹 Lưu lại vào file
+  localCakes.push(newCake);
   fs.writeFileSync(DATA_FILE, JSON.stringify(localCakes, null, 2));
 
   res.json({ message: "Thêm bánh thành công!", data: newCake });
 });
+
 
 app.listen(5000, () => console.log("✅ Server running at http://localhost:5000"));

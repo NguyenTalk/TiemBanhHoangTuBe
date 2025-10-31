@@ -176,3 +176,9 @@ footer {
   border-top: 1px solid #ff7b00;
   color: #f5cba0;
 }
+.author {
+  color: #ff9d3a;
+  font-style: italic;
+  margin: 5px 0;
+}
+
