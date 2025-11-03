@@ -3,74 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎃 Little Prince's Spooky Bakery</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Quản lý Bánh Ngọt 🎂</title>
+  <link rel="stylesheet" href="TrangWeb.css" />
 </head>
+
 <body>
-  <header class="navbar">
-    <div class="logo">🎃 Little Prince's Spooky Bakery</div>
-    <nav>
-      <a href="#">Trang chủ</a>
-      <a href="#menu">Menu</a>
-      <a href="#about">Giới thiệu</a>
-      <a href="#contact">Liên hệ</a>
-    </nav>
+  <header>🎂 Quản Lý Bánh Ngọt - Little's Prince Bakery</header>
 
-    <!-- 🔹 Nút đăng nhập / đăng ký / đăng xuất -->
-    <div class="auth-buttons">
-      <a href="login.html" id="loginBtn" class="btn small">Đăng nhập</a>
-      <a href="register.html" id="registerBtn" class="btn small">Đăng ký</a>
-      <button id="logoutBtn" class="btn small" style="display:none;">Đăng xuất</button>
-    </div>
-  </header>
+  <nav class="menu">
+    <a href="#" class="menu-item" data-action="all">📋 Xem tất cả bánh</a>
+    <a href="#" class="menu-item" data-action="my">🧁 Bánh của tôi</a>
+    <a href="#" class="menu-item" data-action="categories">📂 Danh mục bánh</a>
+    <a href="#" class="menu-item" data-action="search">🔍 Tìm kiếm bánh</a>
+    <a href="#" class="menu-item" data-action="create">➕ Tạo bánh mới</a>
+    <a href="#" class="menu-item" data-action="update">✏️ Cập nhật bánh</a>
+    <a href="#" class="menu-item" data-action="delete">🗑️ Xóa bánh</a>
+  </nav>
 
-  <section class="hero spooky-hero">
-    <div class="hero-text">
-      <h1>🎃 Ngọt ngào trong bóng tối 👻</h1>
-      <p>Bánh ngọt Halloween – ngọt ngào đến rợn người 💀</p>
-      <a href="#menu" class="btn">Khám phá ngay</a>
-    </div>
-  </section>
+  <main>
+    <p class="intro-text">Chọn một mục trong menu để thao tác 🍰</p>
+    <div id="cakeList" class="cake-grid"></div>
+    <div id="formContainer"></div>
+  </main>
 
-  <section id="menu" class="menu">
-    <h2>🕯️ Menu Bánh Halloween</h2>
+  <div class="logout">
+    <button class="btn-logout" id="logoutBtn">Đăng xuất</button>
+  </div>
 
-    <button id="openAddCake" class="btn addcake-btn">+ Thêm bánh mới</button>
-
-    <div id="addCakeFormContainer" class="addcake-popup">
-      <form id="addCakeForm" class="addcake-form">
-        <h3>🧁 Thêm bánh mới</h3>
-
-        <label for="cakeName">Tên bánh</label>
-        <input type="text" id="cakeName" placeholder="Nhập tên bánh..." required />
-
-        <label for="cakeDesc">Mô tả</label>
-        <textarea id="cakeDesc" placeholder="Mô tả ngắn..." required></textarea>
-
-        <label for="cakeImage">Link hình ảnh</label>
-        <input type="url" id="cakeImage" placeholder="https://..." required />
-
-        <label for="cakePrice">Giá (VNĐ)</label>
-        <input type="number" id="cakePrice" placeholder="Nhập giá" required />
-
-        <div class="form-btns">
-          <button type="submit" class="btn">Đăng bánh</button>
-          <button type="button" id="closeAddCake" class="btn cancel">Hủy</button>
-        </div>
-
-        <p id="addCakeMsg" class="error"></p>
-      </form>
-    </div>
-
-    <div class="menu-grid" id="cakeList">
-      <p>🍰 Đang tải danh sách bánh...</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Little Prince's Spooky Bakery | Made with 💀 and love</p>
-  </footer>
-
-  <script src="Trangchu.js"></script>
+  <script src="TrangWeb.js"></script>
 </body>
 </html>
