@@ -1,266 +1,223 @@
-/* ==========================
- 🎄 CHỦ ĐỀ GIÁNG SINH - NO IMAGE VERSION
- ========================== */
-
-/* 🌌 Toàn trang với hiệu ứng tuyết bằng code */
-body {
+/* ===== RESET ===== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+}
+
+/* ===== NỀN GIÁNG SINH ===== */
+body {
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1a2238, #0b0d1a 60%, #000);
+  color: #fff;
+  background: radial-gradient(circle at top, #001018, #000814 90%);
   overflow-x: hidden;
-  animation: bg-glow 8s ease-in-out infinite alternate;
-}
-
-/* ✨ Hiệu ứng ánh sáng nền lung linh */
-@keyframes bg-glow {
-  0% {
-    background-color: #0b0d1a;
-  }
-  100% {
-    background-color: #14213d;
-  }
-}
-
-/* ❄️ Hiệu ứng tuyết rơi bằng code */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background-repeat: repeat;
-  animation: snow 10s linear infinite;
-}
-
-body::before {
-  background-image: radial-gradient(2px 2px at 20px 20px, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 40px 80px, #fff, transparent),
-    radial-gradient(1px 1px at 60px 50px, #fff, transparent),
-    radial-gradient(2px 2px at 80px 10px, #fff, transparent),
-    radial-gradient(2px 2px at 120px 90px, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 160px 30px, #fff, transparent);
-  background-size: 200px 200px;
-  opacity: 0.3;
-}
-
-body::after {
-  background-image: radial-gradient(1.5px 1.5px at 50px 50px, #fff, transparent),
-    radial-gradient(2px 2px at 150px 100px, #fff, transparent),
-    radial-gradient(1px 1px at 90px 70px, #fff, transparent),
-    radial-gradient(2px 2px at 180px 40px, #fff, transparent);
-  background-size: 250px 250px;
-  opacity: 0.25;
-  animation-duration: 15s;
-}
-
-@keyframes snow {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 200px;
-  }
-}
-
-/* 🎅 Header */
-header {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 25px 0;
-  background: linear-gradient(90deg, #ff0000, #cc0000, #009933);
-  color: #fff8dc;
-  text-shadow: 2px 2px 6px #000;
-  border-bottom: 3px solid #fff;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
   position: relative;
-  overflow: hidden;
 }
 
-/* 🌟 Đèn nhấp nháy trên header */
-header::after {
-  content: "🎄🎅⭐🎁❄️";
-  display: block;
-  font-size: 1.4rem;
-  margin-top: 5px;
-  animation: blink 2s infinite alternate;
+/* Hiệu ứng tuyết */
+@keyframes snow {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0.5; }
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    opacity: 0.5;
-    filter: hue-rotate(180deg);
-  }
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  animation: snow linear infinite;
+  z-index: 9999;
+  pointer-events: none;
 }
 
-/* 🎄 Menu */
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(90deg, #b30000, #e63946, #ffb703, #007200);
+  background-size: 300% 100%;
+  animation: gradientMove 10s ease infinite;
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7);
+  border-bottom: 4px solid #ffd166;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== MENU ===== */
 .menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  gap: 12px;
+  border-bottom: 3px solid #ffb703;
+  box-shadow: 0 0 25px #ffb70350;
 }
 
+/* Nút menu phát sáng */
 .menu-item {
-  text-decoration: none;
-  padding: 10px 22px;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #ff0000, #ff7a00);
+  padding: 10px 18px;
+  background: linear-gradient(145deg, #d90429, #ef233c);
+  border: 2px solid #ffd166;
+  border-radius: 10px;
   color: #fff;
+  text-decoration: none;
   font-weight: 600;
-  transition: 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 10px #ffb70370;
+  transition: all 0.3s ease-in-out;
+  position: relative;
 }
 
 .menu-item:hover {
-  background: linear-gradient(90deg, #009933, #ff0000);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  background: linear-gradient(145deg, #00b050, #4cc9f0);
+  box-shadow: 0 0 20px #ffd166, 0 0 30px #ff006e;
   transform: scale(1.05);
 }
 
-/* 🍰 Khu vực chính */
+/* ===== MAIN ===== */
 main {
-  padding: 40px 20px;
+  padding: 30px 10px;
   text-align: center;
 }
 
-/* ✨ Mô tả chính */
 .intro-text {
-  font-size: 1.2rem;
-  color: #ffeb99;
-  margin-bottom: 25px;
-  text-shadow: 0 0 10px #ff0000;
+  font-size: 1.4rem;
+  color: #ffd166;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 8px #ffb703;
 }
 
-/* 🎁 Danh sách bánh */
+/* ===== LƯỚI HIỂN THỊ BÁNH ===== */
 .cake-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  padding: 10px;
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
 }
 
-/* 🍰 Thẻ bánh */
+/* ===== THẺ BÁNH ===== */
 .cake-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border-radius: 15px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+  width: 260px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
 .cake-card:hover {
-  transform: scale(1.03);
-  background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(0, 255, 0, 0.1));
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px #ffb703, 0 0 50px rgba(255, 0, 0, 0.3);
 }
 
 .cake-card img {
   width: 100%;
-  height: 180px;
-  border-radius: 10px;
+  height: 160px;
+  border-radius: 15px;
   object-fit: cover;
-  border: 2px solid #ffcccc;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .cake-card h3 {
-  color: #ffe97f;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+  color: #ffb703;
+  margin: 8px 0;
+  font-size: 1.2rem;
 }
 
-.cake-price {
-  color: #00ff88;
-  font-weight: bold;
+.cake-card p {
+  font-size: 0.95rem;
+  color: #f8f9fa;
 }
 
-.cake-author {
-  font-size: 0.9rem;
-  color: #ffb6c1;
-}
-
-/* 🎁 Form */
+/* ===== FORM ===== */
 .form-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 25px;
+  width: 340px;
   margin: 0 auto;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  text-align: left;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .form-card label {
+  color: #ffd166;
+  font-weight: 600;
   display: block;
-  color: #fffbe6;
-  text-align: left;
-  margin-top: 10px;
-  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .form-card input,
-.form-card select,
-.form-card textarea {
+.form-card textarea,
+.form-card select {
   width: 100%;
-  margin-top: 5px;
-  padding: 10px;
+  padding: 8px;
+  margin-bottom: 15px;
   border-radius: 8px;
-  border: none;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  border: 1px solid #ccc;
   font-size: 1rem;
   outline: none;
+  background: rgba(255,255,255,0.9);
+  color: #000;
 }
 
-.form-card input:focus,
-.form-card select:focus,
-.form-card textarea:focus {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 10px #ff3333;
-}
-
-/* 🧧 Nút hành động */
-button,
-.btn-logout {
-  margin-top: 15px;
-  padding: 10px 25px;
-  font-size: 1rem;
+.form-card button {
+  background: linear-gradient(90deg, #ef233c, #ffb703);
+  color: white;
+  font-weight: 700;
   border: none;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #ff0000, #ff7a00);
-  color: #fff;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button:hover,
-.btn-logout:hover {
-  background: linear-gradient(90deg, #009933, #ff0000);
+.form-card button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 20px #ffb703;
 }
 
-/* 🌟 Khu vực đăng xuất */
+/* ===== NÚT ĐĂNG XUẤT ===== */
 .logout {
   text-align: center;
-  margin-top: 40px;
+  margin: 20px 0 40px;
+}
+
+.btn-logout {
+  background: linear-gradient(90deg, #d00000, #ff7b00);
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ffb70370;
+}
+
+.btn-logout:hover {
+  background: linear-gradient(90deg, #9d0208, #ffba08);
+  box-shadow: 0 0 25px #ffba08;
+  transform: scale(1.1);
 }

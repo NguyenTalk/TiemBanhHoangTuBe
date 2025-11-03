@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quản lý Bánh Ngọt 🎂</title>
+  <title>🎄 Quản Lý Bánh Ngọt - Little's Prince Bakery</title>
   <link rel="stylesheet" href="TrangWeb.css" />
 </head>
 
 <body>
-  <header>🎂 Quản Lý Bánh Ngọt - Little's Prince Bakery</header>
+  <header>🎂 Quản Lý Bánh Ngọt - Little's Prince Bakery 🎁🎅⭐🎄</header>
 
   <nav class="menu">
     <a href="#" class="menu-item" data-action="all">📋 Xem tất cả bánh</a>
@@ -21,7 +21,7 @@
   </nav>
 
   <main>
-    <p class="intro-text">Chọn một mục trong menu để thao tác 🍰</p>
+    <p class="intro-text">🎅 Chọn một mục trong menu để thao tác cùng Giáng Sinh vui vẻ 🎄</p>
     <div id="cakeList" class="cake-grid"></div>
     <div id="formContainer"></div>
   </main>
@@ -29,6 +29,26 @@
   <div class="logout">
     <button class="btn-logout" id="logoutBtn">Đăng xuất</button>
   </div>
+
+  <!-- Hiệu ứng tuyết -->
+  <script>
+    const snowContainer = document.createElement("div");
+    document.body.appendChild(snowContainer);
+
+    function createSnowflake() {
+      const snow = document.createElement("div");
+      snow.classList.add("snowflake");
+      snow.textContent = "❄";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = 4 + Math.random() * 6 + "s";
+      snow.style.fontSize = 10 + Math.random() * 15 + "px";
+      snow.style.opacity = Math.random();
+      snowContainer.appendChild(snow);
+      setTimeout(() => snow.remove(), 10000);
+    }
+
+    setInterval(createSnowflake, 200);
+  </script>
 
   <script src="TrangWeb.js"></script>
 </body>
