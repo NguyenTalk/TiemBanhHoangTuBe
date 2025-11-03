@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký - Little's Prince Bakery 🎂</title>
+  <link rel="stylesheet" href="script.css" />
+</head>
+
+<body>
+  <div class="bubbles" id="bubbles"></div>
+
+  <div class="card">
+    <div class="brand">
+      <div class="logo">🎂</div>
+      <div>
+        <h1>Little's Prince Bakery</h1>
+        <p class="lead">Tạo tài khoản mới để bắt đầu 🎃</p>
+      </div>
+    </div>
+
+    <form id="registerForm">
+      <div>
+        <label for="username">Tên đăng nhập</label>
+        <input id="username" type="text" placeholder="Tên không dấu" required />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="example@gmail.com" required />
+      </div>
+
+      <div>
+        <label for="fullname">Họ và tên</label>
+        <input id="fullname" type="text" placeholder="Nguyễn Văn A" required />
+      </div>
+
+      <div>
+        <label for="avatar">Link ảnh đại diện (tùy chọn)</label>
+        <input id="avatar" type="url" placeholder="https://example.com/avatar.jpg" />
+      </div>
+
+      <div>
+        <label for="password">Mật khẩu</label>
+        <input id="password" type="password" placeholder="Nhập mật khẩu" required />
+      </div>
+
+      <div>
+        <label for="confirm">Nhập lại mật khẩu</label>
+        <input id="confirm" type="password" placeholder="Xác nhận mật khẩu" required />
+      </div>
+
+      <p id="errorMsg" class="error"></p>
+
+      <button type="submit" class="btn">Đăng Ký</button>
+    </form>
+
+    <p class="foot">
+      Đã có tài khoản?
+      <a href="index.html" class="link">Đăng nhập ngay</a>
+    </p>
+  </div>
+
+  <script src="dangki.js"></script>
+</body>
+</html>

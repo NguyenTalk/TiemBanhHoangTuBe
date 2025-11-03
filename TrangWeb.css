@@ -1,0 +1,266 @@
+/* ==========================
+ 🎄 CHỦ ĐỀ GIÁNG SINH - NO IMAGE VERSION
+ ========================== */
+
+/* 🌌 Toàn trang với hiệu ứng tuyết bằng code */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a2238, #0b0d1a 60%, #000);
+  overflow-x: hidden;
+  animation: bg-glow 8s ease-in-out infinite alternate;
+}
+
+/* ✨ Hiệu ứng ánh sáng nền lung linh */
+@keyframes bg-glow {
+  0% {
+    background-color: #0b0d1a;
+  }
+  100% {
+    background-color: #14213d;
+  }
+}
+
+/* ❄️ Hiệu ứng tuyết rơi bằng code */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: repeat;
+  animation: snow 10s linear infinite;
+}
+
+body::before {
+  background-image: radial-gradient(2px 2px at 20px 20px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 40px 80px, #fff, transparent),
+    radial-gradient(1px 1px at 60px 50px, #fff, transparent),
+    radial-gradient(2px 2px at 80px 10px, #fff, transparent),
+    radial-gradient(2px 2px at 120px 90px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 30px, #fff, transparent);
+  background-size: 200px 200px;
+  opacity: 0.3;
+}
+
+body::after {
+  background-image: radial-gradient(1.5px 1.5px at 50px 50px, #fff, transparent),
+    radial-gradient(2px 2px at 150px 100px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 70px, #fff, transparent),
+    radial-gradient(2px 2px at 180px 40px, #fff, transparent);
+  background-size: 250px 250px;
+  opacity: 0.25;
+  animation-duration: 15s;
+}
+
+@keyframes snow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 200px;
+  }
+}
+
+/* 🎅 Header */
+header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 25px 0;
+  background: linear-gradient(90deg, #ff0000, #cc0000, #009933);
+  color: #fff8dc;
+  text-shadow: 2px 2px 6px #000;
+  border-bottom: 3px solid #fff;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 Đèn nhấp nháy trên header */
+header::after {
+  content: "🎄🎅⭐🎁❄️";
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 5px;
+  animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    opacity: 0.5;
+    filter: hue-rotate(180deg);
+  }
+}
+
+/* 🎄 Menu */
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item {
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #ff0000, #ff7a00);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.menu-item:hover {
+  background: linear-gradient(90deg, #009933, #ff0000);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
+
+/* 🍰 Khu vực chính */
+main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ✨ Mô tả chính */
+.intro-text {
+  font-size: 1.2rem;
+  color: #ffeb99;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* 🎁 Danh sách bánh */
+.cake-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* 🍰 Thẻ bánh */
+.cake-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cake-card:hover {
+  transform: scale(1.03);
+  background: linear-gradient(145deg, rgba(255, 0, 0, 0.2), rgba(0, 255, 0, 0.1));
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.cake-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #ffcccc;
+  margin-bottom: 15px;
+}
+
+.cake-card h3 {
+  color: #ffe97f;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.cake-price {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.cake-author {
+  font-size: 0.9rem;
+  color: #ffb6c1;
+}
+
+/* 🎁 Form */
+.form-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.form-card label {
+  display: block;
+  color: #fffbe6;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px #ff3333;
+}
+
+/* 🧧 Nút hành động */
+button,
+.btn-logout {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #ff0000, #ff7a00);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.btn-logout:hover {
+  background: linear-gradient(90deg, #009933, #ff0000);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* 🌟 Khu vực đăng xuất */
+.logout {
+  text-align: center;
+  margin-top: 40px;
+}
